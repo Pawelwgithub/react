@@ -18,7 +18,7 @@ class App extends React.Component {
         <List {...listData} /> {/*Jest to spread operator, który pozwala na rozpakowanie obiektu lub tablicy. Oznacza to, że wszystkie właściwości z listData zostaną przypisane do komponentu List, jako jego właściwości*/}
       </main>
       //</div>
-    )
+    );
   }
 }
 
