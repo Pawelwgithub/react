@@ -1,10 +1,17 @@
 import React from 'react';
 import styles from './App.scss';
-import List from '../List/List.js';
-import {pageContents, listData} from '../../data/dataStore';
+//import List from '../List/List.js';
+//import {pageContents, listData} from '../../data/dataStore';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
+  static propTypes = {
+    title: PropTypes.node,
+    subtitle: PropTypes.node,
+  };
+
   render() {
+    const {title, subtitle} = this.props;
     return (
       //<div>
       <main className={styles.component}>
@@ -13,9 +20,9 @@ class App extends React.Component {
         <List title={['Things to do', <sup key='1'>soon!</sup>]} 
         image={"http://uploads.kodilla.com/bootcamp/fer/11.react/space.png"} altImage={'Space'} titleImage={'Space'}>
         </List>*/}
-        <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
-        <List {...listData} /> {/*Jest to spread operator, który pozwala na rozpakowanie obiektu lub tablicy. Oznacza to, że wszystkie właściwości z listData zostaną przypisane do komponentu List, jako jego właściwości*/}
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
+        {/*<List {...listData} />*/} {/*Jest to spread operator, który pozwala na rozpakowanie obiektu lub tablicy. Oznacza to, że wszystkie właściwości z listData zostaną przypisane do komponentu List, jako jego właściwości*/}
       </main>
       //</div>
     );
