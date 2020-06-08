@@ -2,16 +2,16 @@ import React from 'react';
 import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
 import PropTypes from 'prop-types';
-import Column from '../Column/Column.js';
+//import Column from '../Column/Column.js';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
-import Creator from '../Creator/Creator.js';
+//import Creator from '../Creator/Creator.js';
 
 
 class List extends React.Component {
-  state = { // tylko i wyłącznie przy ustawianiu początkowego stanu można przypisać wartość do this.state za pomocą znaku równości =. Poza tym przypadkiem zawsze będziemy zmieniać stan za pomocą metody this.setState, odziedziczonej z klasy React.Component
+  /*state = { // tylko i wyłącznie przy ustawianiu początkowego stanu można przypisać wartość do this.state za pomocą znaku równości =. Poza tym przypadkiem zawsze będziemy zmieniać stan za pomocą metody this.setState, odziedziczonej z klasy React.Component
     columns: this.props.columns || [], // operatora lub (||), jeśli this.props.columns nie zostało zdefiniowane, czyli komponent nie otrzymał propsa columns, to w this.state.columns znajdzie się pusta tablica []
-  }
+  }*/
   
   static propTypes = {
     title: PropTypes.node.isRequired,
@@ -26,7 +26,7 @@ class List extends React.Component {
     description: settings.defaultListDescription,
   }
 
-  addColumn(title){ // dodaj do this.state.columns nowy obiekt
+  /*addColumn(title){ // dodaj do this.state.columns nowy obiekt
     this.setState(state => (
       {
         columns: [
@@ -40,35 +40,41 @@ class List extends React.Component {
         ],
       }
     ));
-  }
+  }*/
 
   render() {
+    const {title, image, altImage, titleImage, description} = this.props;
     return (
       <section className={styles.component}>
         <Hero 
-          titleText={this.props.title} 
-          image={this.props.image} 
-          altImage={this.props.altImage} 
-          titleImage={this.props.titleImage} 
+          titleText={title} 
+          image={image} 
+          altImage={altImage} 
+          titleImage={titleImage}
         />
         <div className={styles.description}>
           {/*{this.props.description}*/}
-          {ReactHtmlParser(this.props.description)}
+          {ReactHtmlParser(description)}
         </div>
+        {/*
         <div className={styles.columns}>
           {/*<Column title="Animals" />
           <Column title="Plants" />
           <Column title="Minerals" />*/}
+        {/*
           {this.state.columns.map(({key, ...columnProps}) => ( // Metoda .map jest dostępna dla każdej tablicy (array). Służy ona do modyfikacji każdego jej elementu – ale zamiast zmieniać tablicę, na której została wykonana, zwraca nową tablicę ze zmienionymi wartościami
             <Column key={key} {...columnProps} /> // jeśli w pętlu lub metodzie .map generujemy komponent dla każdego elementu z tablicy, musimy jawnie przypisać klucz tego komponentu
           ))}
         </div>
+        */}
+        {/*
         <div className={styles.creator}>
           <Creator 
             text={settings.columnCreatorText} 
             action={title => this.addColumn(title)}
           />
         </div>
+        */}
       </section>
     );
   }
