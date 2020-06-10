@@ -17,7 +17,7 @@ export const createAction_changeSearchString = payload => ({ payload, type: FILT
 export default function reducer(statePart = '', action = {}) {
   switch (action.type) {
     case FILTER_CARDS:
-      return [action.payload];
+      return action.payload;
     default:
       return statePart;
   }
