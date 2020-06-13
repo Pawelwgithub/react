@@ -7,6 +7,7 @@ import Column from '../Column/ColumnContainer.js';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 import Creator from '../Creator/Creator.js';
+import Container from '../Container/Container.js';
 
 
 class List extends React.Component {
@@ -47,39 +48,41 @@ class List extends React.Component {
   render() {
     const {title, image, altImage, titleImage, description, columns, addColumn} = this.props;
     return (
-      <section className={styles.component}>
-        <Hero 
-          titleText={title} 
-          image={image} 
-          altImage={altImage} 
-          titleImage={titleImage}
-        />
-        <div className={styles.description}>
-          {/*{this.props.description}*/}
-          {ReactHtmlParser(description)}
-        </div>
-        <div className={styles.columns}>
-          {/*
-          <Column title="Animals" />
-          <Column title="Plants" />
-          <Column title="Minerals" />
-          */}
-          {/*
-          {this.state.columns.map(({key, ...columnProps}) => ( // Metoda .map jest dostępna dla każdej tablicy (array). Służy ona do modyfikacji każdego jej elementu – ale zamiast zmieniać tablicę, na której została wykonana, zwraca nową tablicę ze zmienionymi wartościami
-            <Column key={key} {...columnProps} /> // jeśli w pętlu lub metodzie .map generujemy komponent dla każdego elementu z tablicy, musimy jawnie przypisać klucz tego komponentu
-          */}
-          {columns.map(columnData => (
-            <Column key={columnData.id} {...columnData} />
-          ))}
-        </div>
-        <div className={styles.creator}>
-          <Creator 
-            text={settings.columnCreatorText} 
-            //action={title => this.addColumn(title)}
-            action={addColumn}
+      <Container>
+        <section className={styles.component}>
+          <Hero 
+            titleText={title} 
+            image={image} 
+            altImage={altImage} 
+            titleImage={titleImage}
           />
-        </div>
-      </section>
+          <div className={styles.description}>
+            {/*{this.props.description}*/}
+            {ReactHtmlParser(description)}
+          </div>
+          <div className={styles.columns}>
+            {/*
+            <Column title="Animals" />
+            <Column title="Plants" />
+            <Column title="Minerals" />
+            */}
+            {/*
+            {this.state.columns.map(({key, ...columnProps}) => ( // Metoda .map jest dostępna dla każdej tablicy (array). Służy ona do modyfikacji każdego jej elementu – ale zamiast zmieniać tablicę, na której została wykonana, zwraca nową tablicę ze zmienionymi wartościami
+              <Column key={key} {...columnProps} /> // jeśli w pętlu lub metodzie .map generujemy komponent dla każdego elementu z tablicy, musimy jawnie przypisać klucz tego komponentu
+            */}
+            {columns.map(columnData => (
+              <Column key={columnData.id} {...columnData} />
+            ))}
+          </div>
+          <div className={styles.creator}>
+            <Creator 
+              text={settings.columnCreatorText} 
+              //action={title => this.addColumn(title)}
+              action={addColumn}
+            />
+          </div>
+        </section>
+      </Container>
     );
   }
 }
