@@ -51,7 +51,8 @@ class List extends React.Component {
       <Container>
         <section className={styles.component}>
           <Hero 
-            titleText={title} 
+            //titleText={title}
+            title={title}
             image={image} 
             altImage={altImage} 
             titleImage={titleImage}
