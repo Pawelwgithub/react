@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Home.scss';
 //import List from '../List/List.js';
-import List from '../List/ListContainer.js';
+//import List from '../List/ListContainer.js';
 //import {pageContents, listData} from '../../data/dataStore';
 import PropTypes from 'prop-types';
-import Search from '../Search/SearchContainer.js';
+//import Search from '../Search/SearchContainer.js';
+import ListLink from '../ListLink/ListLink.js';
 
 class Home extends React.Component {
   static propTypes = {
@@ -25,10 +26,11 @@ class Home extends React.Component {
         </List>*/}
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search />
+        {/*<Search />*/}
         {/*<List {...listData} />*/} {/*Jest to spread operator, który pozwala na rozpakowanie obiektu lub tablicy. Oznacza to, że wszystkie właściwości z listData zostaną przypisane do komponentu List, jako jego właściwości*/}
         {lists.map(listData => (
-          <List key={listData.id} {...listData} />
+          //<List key={listData.id} {...listData} />
+          <ListLink key={listData.id} {...listData} />
         ))}
       </main>
       //</div>

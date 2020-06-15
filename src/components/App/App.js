@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.scss';
 //import List from '../List/List.js';
-//import List from '../List/ListContainer.js';
+import List from '../List/ListContainer.js';
 //import {pageContents, listData} from '../../data/dataStore';
 //import PropTypes from 'prop-types';
 //import Search from '../Search/SearchContainer.js';
@@ -65,6 +65,7 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/info' component={Info} />
         <Route exact path="/FAQ" component={FAQ} />
+        <Route exact path="/list/:id" component={List} /> {/*Route, który będzie obsługiwał adresy wyświetlające pojedynczą listę.*/}
       </AnimatedSwitch>
       {/*</Switch>*/}
     </MainLayout>
