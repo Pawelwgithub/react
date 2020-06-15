@@ -1,5 +1,5 @@
 import React from 'react';
-//import styles from './App.scss';
+import styles from './App.scss';
 //import List from '../List/List.js';
 //import List from '../List/ListContainer.js';
 //import {pageContents, listData} from '../../data/dataStore';
@@ -7,9 +7,11 @@ import React from 'react';
 //import Search from '../Search/SearchContainer.js';
 import Home from '../Home/HomeContainer.js';
 import Info from '../Info/Info.js';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+//import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout.js';
 import FAQ from '../FAQ/FAQ';
+import {AnimatedSwitch} from 'react-router-transition';
 
 /*class App extends React.Component {
   static propTypes = {
@@ -53,11 +55,18 @@ const App = () => (
   </div>*/
   <BrowserRouter>
     <MainLayout>
-      <Switch>
+      {/*<Switch>*/}
+      <AnimatedSwitch
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}
+        className={styles.switchWrapper}
+      >
         <Route exact path='/' component={Home} />
         <Route exact path='/info' component={Info} />
         <Route exact path="/FAQ" component={FAQ} />
-      </Switch>
+      </AnimatedSwitch>
+      {/*</Switch>*/}
     </MainLayout>
   </BrowserRouter>
 );

@@ -1,4 +1,4 @@
-@import '../../styles/settings.scss';
+/*@import '../../styles/settings.scss';
 
 .component {
   padding: $base-size;
@@ -21,4 +21,15 @@
 
 .title + .subtitle {
   margin-top: (- $base-size * 3);
+}*/
+
+.switchWrapper {
+  position: relative;
+
+  > :first-child ~ * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
