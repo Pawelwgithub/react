@@ -10,8 +10,10 @@ import Info from '../Info/Info.js';
 //import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout.js';
-import FAQ from '../FAQ/FAQ';
+import FAQ from '../FAQ/FAQ.js';
 import {AnimatedSwitch} from 'react-router-transition';
+import SearchResults from '../SearchResults/SearchResultsContainer';
+//import Container from '../Container/Container.js';
 
 /*class App extends React.Component {
   static propTypes = {
@@ -56,6 +58,7 @@ const App = () => (
   <BrowserRouter>
     <MainLayout>
       {/*<Switch>*/}
+      {/*<Container>*/}
       <AnimatedSwitch
         atEnter={{ opacity: 0 }}
         atLeave={{ opacity: 0 }}
@@ -66,7 +69,10 @@ const App = () => (
         <Route exact path='/info' component={Info} />
         <Route exact path="/FAQ" component={FAQ} />
         <Route exact path="/list/:id" component={List} /> {/*Route, który będzie obsługiwał adresy wyświetlające pojedynczą listę.*/}
+        <Route exact path="/search/:title" component={SearchResults} />
+        {/*<Route exact path="/search/:searchString" component={SearchResults} />*/}
       </AnimatedSwitch>
+      {/*</Container>*/}
       {/*</Switch>*/}
     </MainLayout>
   </BrowserRouter>
