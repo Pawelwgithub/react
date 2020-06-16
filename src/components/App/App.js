@@ -68,7 +68,8 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/info' component={Info} />
         <Route exact path="/FAQ" component={FAQ} />
-        <Route exact path="/list/:id" component={List} /> {/*Route, który będzie obsługiwał adresy wyświetlające pojedynczą listę.*/}
+        <Route exact path="/list/:id" component={List} />
+        {/*powyżej jest Route, który będzie obsługiwał adresy wyświetlające pojedynczą listę.*/}
         <Route exact path="/search/:title" component={SearchResults} />
         {/*<Route exact path="/search/:searchString" component={SearchResults} />*/}
       </AnimatedSwitch>
